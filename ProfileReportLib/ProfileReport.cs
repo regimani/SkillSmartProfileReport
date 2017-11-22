@@ -50,7 +50,7 @@ namespace SkillSmart.Reporting.ProfileReportLib
             gfx.DrawString("APPLICANT", FontUtility.HeaderTitle, XBrushes.White, rcImage, XStringFormats.Center);
 
             gfx.DrawString("John Doe", FontUtility.HeaderContentBig, XBrushes.Black, new XRect(50, 62, 100, 0));
-            gfx.DrawString("test@skillsmart.us", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(50, 75, 100, 0));
+            gfx.DrawString("test@skillsmart.usa", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(50, 75, 100, 0));
             gfx.DrawString("802-123-4567", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(50, 85, 100, 0));
 
             gfx.DrawLine(XPens.DarkBlue, 280, 50, 500, 50);
