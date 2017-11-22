@@ -49,7 +49,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ProfileReportLib\ProfileReportLib.csproj">
+    <ProjectReference Include="..\ProfileReportLib\ProfileReportLib.csproj">
       <Project>{14eebd5f-a259-481f-a054-d55275831303}</Project>
       <Name>ProfileReportLib</Name>
     </ProjectReference>
