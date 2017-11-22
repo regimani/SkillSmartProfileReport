@@ -4,6 +4,8 @@ using SkillSmart.Reporting.ProfileReportLib.Utility;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Collections.Generic;
+using SkillSmart.Reporting.ProfileReportLib.Model;
 namespace SkillSmart.Reporting.ProfileReportLib
 {
     public class ProfileReport
@@ -75,11 +77,13 @@ namespace SkillSmart.Reporting.ProfileReportLib
             gfx.DrawString("Prerequisites", FontUtility.HeaderContentBig, XBrushes.Black, new XRect(52, 130, 150, 0));
             gfx.DrawLine(XPens.Black, 52, 132, 110, 132);
 
-            gfx.DrawString("&", FontUtility.BodyContentTick, XBrushes.Green, new XRect(52, 140, 10, 0));
-            gfx.DrawString("Bachelors Degree", FontUtility.BodyContentNormal, XBrushes.Black, new XRect(62, 140, 150, 0));
+            List<Requisite> refList = TestDataLibrary.RequisitesGet();
 
-            gfx.DrawString("*", FontUtility.BodyContentTick, XBrushes.Green, new XRect(52, 150, 10, 0));
-            gfx.DrawString("IELTS Clearence with Full Scope", FontUtility.BodyContentNormal, XBrushes.Black, new XRect(62, 150, 150, 0));
+            for(int x=0; x< refList.Count; x++)
+            {
+                gfx.DrawString(refList[x].Icon, FontUtility.BodyContentTick, XBrushes.Green, new XRect(52, 140 + ( x * 10), 10, 0));
+                gfx.DrawString(refList[x].Name, FontUtility.BodyContentNormal, XBrushes.Black, new XRect(62, 140 + (x * 10), 150, 0));
+            }
 
             gfx.DrawLine(XPens.Black, 55, 171, 200, 171);
             gfx.DrawLine(XPens.Black, 201, 125, 201, 171);
@@ -132,20 +136,15 @@ namespace SkillSmart.Reporting.ProfileReportLib
             gfx.DrawString("References", FontUtility.HeaderContentBig, XBrushes.Black, new XRect(50, 723, 100, 0));
             gfx.DrawLine(XPens.Gray, 50, 725, 550, 725);
 
-            gfx.DrawString("R1: John Smith", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(50, 735, 50, 0));
-            gfx.DrawString("Foreman", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(65, 745, 50, 0));
-            gfx.DrawString("802-123-4567", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(65, 755, 50, 0));
-            gfx.DrawString("smith@fire.org", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(65, 765, 50, 0));
-
-            gfx.DrawString("R2: Prof. Smith", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(150, 735, 50, 0));
-            gfx.DrawString("804-123-4567", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(165, 745, 50, 0));
-            gfx.DrawString("smith@gmail.com", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(165, 755, 50, 0));
-
-            gfx.DrawString("R3: John Claire", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(250, 735, 50, 0));
-            gfx.DrawString("Teacher", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(265, 745, 50, 0));
-            gfx.DrawString("741-123-4567", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(265, 755, 50, 0));
-            gfx.DrawString("claire@gmail.com", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(265, 765, 50, 0));
-            gfx.DrawString("http://www.johnclaire.com", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(265, 775, 50, 0));
+            List<JobReference> refList = TestDataLibrary.ReferencesGet();
+            for(int x=0; x<refList.Count; x++)
+            {
+                gfx.DrawString("R"+(x+1)+":", FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(50 +(x*100), 735, 10, 0));
+                gfx.DrawString(refList[x].Name, FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(65 + (x * 100), 735, 50, 0));
+                gfx.DrawString(refList[x].Designation, FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(65 + (x * 100), 745, 50, 0));
+                gfx.DrawString(refList[x].Phone, FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(65 + (x * 100), 755, 50, 0));
+                gfx.DrawString(refList[x].Email, FontUtility.HeaderContentNormal, XBrushes.Black, new XRect(65 + (x * 100), 765, 50, 0));
+            }
         }
     }
 }
