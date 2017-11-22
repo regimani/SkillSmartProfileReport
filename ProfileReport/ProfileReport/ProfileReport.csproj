@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>SkillSmart.Reporting</RootNamespace>
+    <AssemblyName>SkillSmart.Reporting</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ProfileReportLib\ProfileReportLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PdfSharp">
+      <HintPath>..\packages\PDFsharp.1.50.3638-beta\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\packages\PDFsharp.1.50.3638-beta\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
